@@ -2,6 +2,9 @@
 
 namespace App\Filament\Resources;
 
+use App\Actions\Filament\Table\Columns\DateAtColumns;
+use App\Enums\Sequence\StatusEnum;
+use App\Enums\Sequence\TypeEnum;
 use App\Filament\Resources\SequenceResource\Pages;
 use App\Filament\Resources\SequenceResource\RelationManagers;
 use App\Models\Sequence;
@@ -12,6 +15,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\Select;
 
 class SequenceResource extends Resource
 {
@@ -19,29 +23,44 @@ class SequenceResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public static function getModelLabel(): string
+    {
+        return __('Sequence');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('Sequences');
+    }
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('range_start')
+                    ->translateLabel()
                     ->required()
                     ->numeric(),
                 Forms\Components\TextInput::make('range_end')
+                    ->translateLabel()
                     ->required()
                     ->numeric(),
                 Forms\Components\TextInput::make('current_number')
+                    ->translateLabel()
                     ->required()
                     ->numeric(),
-                Forms\Components\TextInput::make('status')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('type')
-                    ->required()
-                    ->maxLength(255),
+                Select::make('status')
+                    ->translateLabel()
+                    ->options(StatusEnum::class),
+                Select::make('type')
+                    ->translateLabel()
+                    ->options(TypeEnum::class),
                 Forms\Components\TextInput::make('series')
+                    ->translateLabel()
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('length')
+                    ->translateLabel()
                     ->required()
                     ->numeric()
                     ->default(10),
@@ -51,38 +70,18 @@ class SequenceResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('deleted_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('range_start')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('range_end')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('current_number')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('status')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('type')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('series')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('length')
-                    ->numeric()
-                    ->sortable(),
-            ])
+            ->columns(
+                DateAtColumns::run([
+                    Tables\Columns\TextColumn::make('series')
+                        ->translateLabel(),
+                    Tables\Columns\TextColumn::make('current_number')
+                        ->translateLabel()
+                        ->numeric(),
+                    Tables\Columns\TextColumn::make('status')
+                        ->translateLabel(),
+                    Tables\Columns\TextColumn::make('type')
+                        ->translateLabel()
+                ]))
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ])

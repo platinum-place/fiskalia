@@ -2,7 +2,9 @@
 
 namespace App\Enums\Sequence;
 
-enum TypeEnum:string
+use Filament\Support\Contracts\HasLabel;
+
+enum TypeEnum: string implements HasLabel
 {
     case FISCALINVOICE = 'fiscalinvoice';
 
@@ -23,4 +25,9 @@ enum TypeEnum:string
     case EEXPORTS = 'e-exports';
 
     case FOREIGNPAYMENTS = 'e-foreignpayments';
+
+    public function getLabel(): ?string
+    {
+        return __('enums.' . $this->value);
+    }
 }

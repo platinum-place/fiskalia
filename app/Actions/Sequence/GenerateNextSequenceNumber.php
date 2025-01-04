@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\Sequence;
 
 use App\Models\Sequence;
 use Lorisleiva\Actions\Concerns\AsAction;
