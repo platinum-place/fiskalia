@@ -6,16 +6,15 @@ use App\Actions\Filament\Table\Columns\DateAtColumns;
 use App\Enums\Sequence\StatusEnum;
 use App\Enums\Sequence\TypeEnum;
 use App\Filament\Resources\SequenceResource\Pages;
-use App\Filament\Resources\SequenceResource\RelationManagers;
 use App\Models\Sequence;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Forms\Components\Select;
 
 class SequenceResource extends Resource
 {
@@ -45,16 +44,16 @@ class SequenceResource extends Resource
                     ->translateLabel()
                     ->required()
                     ->numeric(),
-                Forms\Components\TextInput::make('current_number')
-                    ->translateLabel()
-                    ->required()
-                    ->numeric(),
                 Select::make('status')
                     ->translateLabel()
                     ->options(StatusEnum::class),
                 Select::make('type')
                     ->translateLabel()
                     ->options(TypeEnum::class),
+                Forms\Components\TextInput::make('current_number')
+                    ->translateLabel()
+                    ->required()
+                    ->numeric(),
                 Forms\Components\TextInput::make('series')
                     ->translateLabel()
                     ->required()
@@ -80,7 +79,7 @@ class SequenceResource extends Resource
                     Tables\Columns\TextColumn::make('status')
                         ->translateLabel(),
                     Tables\Columns\TextColumn::make('type')
-                        ->translateLabel()
+                        ->translateLabel(),
                 ]))
             ->filters([
                 Tables\Filters\TrashedFilter::make(),

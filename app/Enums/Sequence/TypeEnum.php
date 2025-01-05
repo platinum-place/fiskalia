@@ -4,30 +4,30 @@ namespace App\Enums\Sequence;
 
 use Filament\Support\Contracts\HasLabel;
 
-enum TypeEnum: string implements HasLabel
+enum TypeEnum: int implements HasLabel
 {
-    case FISCALINVOICE = 'fiscalinvoice';
+    case FISCALINVOICE = 31;
 
-    case CONSUMEINVOICE = 'consumeinvoice';
+    case CONSUMEINVOICE = 32;
 
-    case DEBITNOTE = 'debitnote';
+    case DEBITNOTE = 33;
 
-    case CREDITNOTE = 'creditnote';
+    case CREDITNOTE = 34;
 
-    case EPURCHASES = 'e-purchases';
+    case EPURCHASES = 41;
 
-    case MINOREXPENSE = 'minorexpense';
+    case MINOREXPENSE = 43;
 
-    case SPECIALREGIME = 'specialregime';
+    case SPECIALREGIME = 44;
 
-    case EGOVERNMENT = 'e-government';
+    case EGOVERNMENT = 45;
 
-    case EEXPORTS = 'e-exports';
+    case EEXPORTS = 46;
 
-    case FOREIGNPAYMENTS = 'e-foreignpayments';
+    case FOREIGNPAYMENTS = 47;
 
     public function getLabel(): ?string
     {
-        return __('enums.' . $this->value);
+        return __('enums.'.$this->name);
     }
 }

@@ -2,8 +2,8 @@
 
 namespace App\Actions\Filament\Table\Columns;
 
-use Lorisleiva\Actions\Concerns\AsAction;
 use Filament\Tables;
+use Lorisleiva\Actions\Concerns\AsAction;
 
 class DateAtColumns
 {

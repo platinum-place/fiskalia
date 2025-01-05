@@ -12,14 +12,14 @@ return [
     /**
      * TypeEnum
      */
-    'fiscalinvoice' => 'Factura de Crédito Fiscal Electrónica',
-    'consumeinvoice' => 'Factura de Consumo Electrónica',
-    'debitnote' => 'Nota de Débito Electrónica',
-    'creditnote' => 'Nota de Crédito Electrónica',
-    'e-purchases' => 'Comprobante Electrónico de Compras',
-    'minorexpense' => 'Comprobante Electrónico para Gastos Menores',
-    'specialregime' => 'Comprobante Electrónico para Regímenes Especiales',
-    'e-government' => 'Comprobante Electrónico Gubernamental',
-    'e-exports' => 'Comprobante Electrónico para Exportaciones',
-    'e-foreignpayments' => 'Comprobante Electrónico para Pagos al Exterior',
+    'FISCALINVOICE' => 'Factura de Crédito Fiscal Electrónica',
+    'CONSUMEINVOICE' => 'Factura de Consumo Electrónica',
+    'DEBITNOTE' => 'Nota de Débito Electrónica',
+    'CREDITNOTE' => 'Nota de Crédito Electrónica',
+    'EPURCHASES' => 'Comprobante Electrónico de Compras',
+    'MINOREXPENSE' => 'Comprobante Electrónico para Gastos Menores',
+    'SPECIALREGIME' => 'Comprobante Electrónico para Regímenes Especiales',
+    'EGOVERNMENT' => 'Comprobante Electrónico Gubernamental',
+    'EEXPORTS' => 'Comprobante Electrónico para Exportaciones',
+    'FOREIGNPAYMENTS' => 'Comprobante Electrónico para Pagos al Exterior',
 ];

@@ -1,12 +1,11 @@
 <?php
 
-use App\Enums\Sequence\StatusEnum;
-use App\Enums\Sequence\TypeEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
@@ -19,8 +18,8 @@ return new class extends Migration {
             $table->integer('range_start');
             $table->integer('range_end');
             $table->integer('current_number');
-            $table->enum('status', array_column(StatusEnum::cases(), 'value'));
-            $table->enum('type', array_column(TypeEnum::cases(), 'value'));
+            $table->string('status');
+            $table->string('type');
             $table->string('series');
             $table->unsignedTinyInteger('length')->default(10);
         });
