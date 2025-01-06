@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('type');
             $table->string('series');
             $table->unsignedTinyInteger('length')->default(10);
+            $table->date('due_date');
         });
     }
 

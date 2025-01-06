@@ -15,6 +15,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\DatePicker;
 
 class SequenceResource extends Resource
 {
@@ -53,7 +54,8 @@ class SequenceResource extends Resource
                 Forms\Components\TextInput::make('current_number')
                     ->translateLabel()
                     ->required()
-                    ->numeric(),
+                    ->numeric()
+                    ->default(0),
                 Forms\Components\TextInput::make('series')
                     ->translateLabel()
                     ->required()
@@ -63,6 +65,9 @@ class SequenceResource extends Resource
                     ->required()
                     ->numeric()
                     ->default(10),
+                DatePicker::make('due_date')
+                    ->translateLabel()
+                    ->required(),
             ]);
     }
 
@@ -79,6 +84,8 @@ class SequenceResource extends Resource
                     Tables\Columns\TextColumn::make('status')
                         ->translateLabel(),
                     Tables\Columns\TextColumn::make('type')
+                        ->translateLabel(),
+                    Tables\Columns\TextColumn::make('due_date')
                         ->translateLabel(),
                 ]))
             ->filters([

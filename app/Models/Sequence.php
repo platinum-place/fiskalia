@@ -13,7 +13,7 @@ class Sequence extends Model
 
     protected $fillable = [
         'range_start', 'range_end', 'current_number',
-        'status', 'type', 'series', 'length',
+        'status', 'type', 'series', 'length','due_date',
     ];
 
     protected function casts(): array
