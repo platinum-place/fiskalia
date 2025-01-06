@@ -23,7 +23,7 @@ class GetCurrentSequence
         $current = $sequences->firstWhere('status', StatusEnum::CURRENT);
         $reserve = $sequences->firstWhere('status', StatusEnum::RESERVE);
 
-        if (empty($current) and !empty($reserve)) {
+        if (empty($current) and ! empty($reserve)) {
             throw new Exception(__('No sequences available'));
         }
 

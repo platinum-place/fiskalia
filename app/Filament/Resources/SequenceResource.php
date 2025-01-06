@@ -8,6 +8,7 @@ use App\Enums\Sequence\TypeEnum;
 use App\Filament\Resources\SequenceResource\Pages;
 use App\Models\Sequence;
 use Filament\Forms;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -15,7 +16,6 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Forms\Components\DatePicker;
 
 class SequenceResource extends Resource
 {
@@ -53,7 +53,7 @@ class SequenceResource extends Resource
                     ->options(TypeEnum::class),
                 Forms\Components\TextInput::make('current_number')
                     ->translateLabel()
-                    ->required()
+                    ->readOnly()
                     ->numeric()
                     ->default(0),
                 Forms\Components\TextInput::make('series')
