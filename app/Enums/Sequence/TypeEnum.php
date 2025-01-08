@@ -6,25 +6,25 @@ use Filament\Support\Contracts\HasLabel;
 
 enum TypeEnum: int implements HasLabel
 {
-    case FISCALINVOICE = 31;
+    case FISCAL_INVOICE = 31;
 
-    case CONSUMEINVOICE = 32;
+    case CONSUME_INVOICE = 32;
 
-    case DEBITNOTE = 33;
+    case DEBIT_NOTE = 33;
 
-    case CREDITNOTE = 34;
+    case CREDIT_NOTE = 34;
 
-    case EPURCHASES = 41;
+    case E_PURCHASES = 41;
 
-    case MINOREXPENSE = 43;
+    case MINOR_EXPENSE = 43;
 
-    case SPECIALREGIME = 44;
+    case SPECIAL_REGIME = 44;
 
-    case EGOVERNMENT = 45;
+    case E_GOVERNMENT = 45;
 
-    case EEXPORTS = 46;
+    case E_EXPORTS = 46;
 
-    case FOREIGNPAYMENTS = 47;
+    case FOREIGN_PAYMENTS = 47;
 
     public function getLabel(): ?string
     {

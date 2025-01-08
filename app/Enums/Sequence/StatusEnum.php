@@ -10,6 +10,8 @@ enum StatusEnum: string implements HasLabel
 
     case RESERVE = 'reserve';
 
+    case DISABLED = 'disabled';
+
     public function getLabel(): ?string
     {
         return __('enums.'.$this->value);

@@ -14,19 +14,17 @@ class GetCurrentSequence
 
     public function handle(int $sequenceNumberType)
     {
-        $sequences = Sequence::where('type', $sequenceNumberType)
+        $current = Sequence::where('type', $sequenceNumberType)
             ->whereDate('due_date', '>=', Carbon::now())
-            ->whereIn('status', [StatusEnum::CURRENT, StatusEnum::RESERVE])
+            ->where('status', StatusEnum::CURRENT)
             ->orderByDesc('created_at')
-            ->get();
+            ->get()
+            ->first();
 
-        $current = $sequences->firstWhere('status', StatusEnum::CURRENT);
-        $reserve = $sequences->firstWhere('status', StatusEnum::RESERVE);
-
-        if (empty($current) and ! empty($reserve)) {
+        if (empty($current)) {
             throw new Exception(__('No sequences available'));
         }
 
-        return $current ?? $reserve;
+        return $current;
     }
 }
