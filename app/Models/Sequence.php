@@ -2,11 +2,15 @@
 
 namespace App\Models;
 
-use App\Enums\Sequence\StatusEnum;
 use App\Enums\Sequence\TypeEnum;
+use App\Enums\Sequence\StatusEnum;
+use App\Observers\SequenceObserver;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 
+#[ObservedBy([SequenceObserver::class])]
 class Sequence extends Model
 {
     use SoftDeletes;

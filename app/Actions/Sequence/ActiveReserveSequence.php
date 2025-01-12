@@ -14,13 +14,13 @@ class ActiveReserveSequence
     public function handle(TypeEnum $type)
     {
         $reserve = Sequence::where('type', $type)
-            ->where('status', StatusEnum::RESERVE)
+            ->where('status', StatusEnum::reserve)
             ->orderByDesc('created_at')
             ->get()
             ->first();
 
         if (! empty($reserve)) {
-            $reserve->update(['status' => StatusEnum::CURRENT]);
+            $reserve->update(['status' => StatusEnum::current]);
         }
     }
 }

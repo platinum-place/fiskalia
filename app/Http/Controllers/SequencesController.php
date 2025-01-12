@@ -1,12 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Services\SequenceService;
+use App\Http\Controllers\Controller;
 
 class SequencesController extends Controller
 {
+    public function __construct(protected SequenceService $service){
+
+    }
+
     /**
      * Display a listing of the resource.
      */

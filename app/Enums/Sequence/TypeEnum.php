@@ -2,10 +2,14 @@
 
 namespace App\Enums\Sequence;
 
+use App\Enums\HasIntCaseValue;
+use App\Enums\HasFilamentFunctions;
 use Filament\Support\Contracts\HasLabel;
 
 enum TypeEnum: int implements HasLabel
 {
+    use HasFilamentFunctions, HasIntCaseValue;
+
     case fiscalInvoice = 31;
 
     case consumeInvoice = 32;
@@ -25,10 +29,4 @@ enum TypeEnum: int implements HasLabel
     case eExports = 46;
 
     case foreignPayments = 47;
-
-
-    public function getLabel(): ?string
-    {
-        return __('enums.' . $this->name);
-    }
 }

@@ -1,4 +1,6 @@
 {
+    "Value": "Valor",
+    ":name not Found": ":name no encontrado",
     "Due date": "Fecha de vencimiento",
     "No sequences available": "No hay secuencias disponibles",
     "Sequence number out of range": "Número de secuencia fuera de rango",
@@ -7,7 +9,7 @@
     "Deleted at": "Eliminado en",
     "Range start": "Rango de inicio",
     "Range end": "Rango de fin",
-    "Current number": "Número actual",
+    "Next number": "Próximo número",
     "Status": "Estado",
     "Type": "Tipo",
     "Series": "Serie",
