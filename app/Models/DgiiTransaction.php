@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class DgiiTransaction extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, HasLogs;
 
     protected $fillable = [
         'status', 'sequence_number', 'security_code', 'signature_date',
