@@ -12,7 +12,7 @@ class Sequence extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'range_start', 'range_end', 'current_number',
+        'range_start', 'range_end', 'next_number',
         'status', 'type', 'series', 'length', 'due_date',
     ];
 

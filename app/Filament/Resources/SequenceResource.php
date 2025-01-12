@@ -2,20 +2,21 @@
 
 namespace App\Filament\Resources;
 
-use App\Actions\Filament\Table\Columns\DateAtColumns;
-use App\Enums\Sequence\StatusEnum;
-use App\Enums\Sequence\TypeEnum;
-use App\Filament\Resources\SequenceResource\Pages;
-use App\Models\Sequence;
 use Filament\Forms;
-use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Forms\Set;
+use App\Models\Sequence;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use App\Enums\Sequence\TypeEnum;
+use Filament\Resources\Resource;
+use App\Enums\Sequence\StatusEnum;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\DatePicker;
 use Illuminate\Database\Eloquent\Builder;
+use App\Filament\Resources\SequenceResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Actions\Filament\Table\Columns\DateAtColumns;
 
 class SequenceResource extends Resource
 {
@@ -40,7 +41,9 @@ class SequenceResource extends Resource
                 Forms\Components\TextInput::make('range_start')
                     ->translateLabel()
                     ->required()
-                    ->numeric(),
+                    ->numeric()
+                    ->afterStateUpdated(fn (Set $set, ?string $state) => $set('next_number', $state))
+                    ->live(true),
                 Forms\Components\TextInput::make('range_end')
                     ->translateLabel()
                     ->required()
@@ -51,9 +54,8 @@ class SequenceResource extends Resource
                 Select::make('type')
                     ->translateLabel()
                     ->options(TypeEnum::class),
-                Forms\Components\TextInput::make('current_number')
+                Forms\Components\TextInput::make('next_number')
                     ->translateLabel()
-                    ->readOnly()
                     ->numeric()
                     ->default(0),
                 Forms\Components\TextInput::make('series')
@@ -78,7 +80,7 @@ class SequenceResource extends Resource
                 DateAtColumns::run([
                     Tables\Columns\TextColumn::make('series')
                         ->translateLabel(),
-                    Tables\Columns\TextColumn::make('current_number')
+                    Tables\Columns\TextColumn::make('next_number')
                         ->translateLabel()
                         ->numeric(),
                     Tables\Columns\TextColumn::make('status')

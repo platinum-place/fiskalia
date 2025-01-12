@@ -11,18 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sequences', function (Blueprint $table) {
+        Schema::create('certs', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->softDeletes();
-            $table->integer('range_start');
-            $table->integer('range_end');
-            $table->integer('next_number');
-            $table->string('status');
-            $table->string('type');
-            $table->string('series');
-            $table->unsignedTinyInteger('length')->default(10);
             $table->date('due_date');
+            $table->string('path');
+            $table->string('password');
         });
     }
 
@@ -31,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sequences');
+        Schema::dropIfExists('certs');
     }
 };

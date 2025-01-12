@@ -3,23 +3,22 @@
 declare(strict_types=1);
 
 return [
-    'IN_PROCESS' => 'En proceso',
-    'ACCEPTED' => 'Aceptado',
-    'CONDITIONALLY_ACCEPTED' => 'Aceptado Condicional',
-    'REJECTED' => 'Rechazado',
+    'inProcess' => 'En proceso',
+    'accepted' => 'Aceptado',
+    'conditionallyAccepted' => 'Aceptado Condicional',
+    'rejected' => 'Rechazado',
 
     'current' => 'Actual',
     'reserve' => 'Reserva',
-    'disabled' => 'Desactivado',
 
-    'FISCAL_INVOICE' => 'Factura de Crédito Fiscal Electrónica',
-    'CONSUME_INVOICE' => 'Factura de Consumo Electrónica',
-    'DEBIT_NOTE' => 'Nota de Débito Electrónica',
-    'CREDIT_NOTE' => 'Nota de Crédito Electrónica',
-    'E_PURCHASES' => 'Comprobante Electrónico de Compras',
-    'MINOR_EXPENSE' => 'Comprobante Electrónico para Gastos Menores',
-    'SPECIAL_REGIME' => 'Comprobante Electrónico para Regímenes Especiales',
-    'E_GOVERNMENT' => 'Comprobante Electrónico Gubernamental',
-    'E_EXPORTS' => 'Comprobante Electrónico para Exportaciones',
-    'FOREIGN_PAYMENTS' => 'Comprobante Electrónico para Pagos al Exterior',
+    'fiscalInvoice' => 'Factura de Crédito Fiscal Electrónica',
+    'consumeInvoice' => 'Factura de Consumo Electrónica',
+    'debitNote' => 'Nota de Débito Electrónica',
+    'creditNote' => 'Nota de Crédito Electrónica',
+    'ePurchases' => 'Comprobante Electrónico de Compras',
+    'minorExpense' => 'Comprobante Electrónico para Gastos Menores',
+    'specialRegime' => 'Comprobante Electrónico para Regímenes Especiales',
+    'eGovernment' => 'Comprobante Electrónico Gubernamental',
+    'eExports' => 'Comprobante Electrónico para Exportaciones',
+    'foreignPayments' => 'Comprobante Electrónico para Pagos al Exterior',
 ];

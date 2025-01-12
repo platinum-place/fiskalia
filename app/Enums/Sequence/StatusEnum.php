@@ -4,16 +4,14 @@ namespace App\Enums\Sequence;
 
 use Filament\Support\Contracts\HasLabel;
 
-enum StatusEnum: string implements HasLabel
+enum StatusEnum: int implements HasLabel
 {
-    case CURRENT = 'current';
+    case current = 1;
 
-    case RESERVE = 'reserve';
-
-    case DISABLED = 'disabled';
+    case reserve = 2;
 
     public function getLabel(): ?string
     {
-        return __('enums.'.$this->value);
+        return __('enums.' . $this->name);
     }
 }
