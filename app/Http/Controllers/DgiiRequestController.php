@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\Cert\SignXML;
-use App\Actions\Sequence\GenerateNextSequenceNumber;
-use App\Actions\Sequence\GenerateXML;
-use App\Enums\DgiiRequest\StatusEnum;
-use App\Http\Requests\DgiiRequest\StoreDgiiRequest;
-use App\Http\Resources\DgiiRequestResource;
+use Exception;
+use Carbon\Carbon;
 use App\Models\Cert;
 use App\Models\DgiiRequest;
-use App\Services\DgiiRequestService;
-use App\Services\SequenceService;
-use Carbon\Carbon;
-use Exception;
 use Illuminate\Http\Request;
+use App\Actions\Cert\SignXML;
+use App\Services\SequenceService;
+use App\Actions\Cert\GetActiveCert;
+use App\Services\DgiiRequestService;
+use App\Actions\Sequence\GenerateXML;
+use App\Enums\DgiiRequest\StatusEnum;
+use App\Http\Resources\DgiiRequestResource;
+use App\Http\Requests\DgiiRequest\StoreDgiiRequest;
+use App\Actions\Sequence\GenerateNextSequenceNumber;
 
 class DgiiRequestController extends Controller
 {
@@ -40,12 +41,7 @@ class DgiiRequestController extends Controller
         $sequence = $this->sequenceService->getNextSequence($type);
         $sequenceNumber = GenerateNextSequenceNumber::run($sequence);
 
-        $cert = Cert::latest()->get()->first();
-
-        if (empty($cert)) {
-            throw new Exception(__(':name not Found', ['name' => __('Cert')]));
-        }
-
+        $cert = GetActiveCert::run();
         $xml = GenerateXML::run($type);
         //$signedXml = SignXML::run($cert, $xml);
 

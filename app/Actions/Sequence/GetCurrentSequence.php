@@ -17,7 +17,7 @@ class GetCurrentSequence
     {
         $current = Sequence::where('type', $type)
             ->where('status', StatusEnum::current)
-            ->whereDate('due_date', '>=', Carbon::now())
+            ->whereDate('due_date', '<=', Carbon::now())
             ->orderByDesc('created_at')
             ->get()
             ->first();
