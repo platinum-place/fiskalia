@@ -2,11 +2,12 @@
 
 namespace App\Providers;
 
-use App\Services\DgiiRequestService;
-use App\Services\DgiiRequestServiceInterface;
 use App\Services\SequenceService;
-use App\Services\SequenceServiceInterface;
+use Illuminate\Support\Facades\URL;
+use App\Services\DgiiRequestService;
 use Illuminate\Support\ServiceProvider;
+use App\Services\SequenceServiceInterface;
+use App\Services\DgiiRequestServiceInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,6 +31,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        if ($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
     }
 }

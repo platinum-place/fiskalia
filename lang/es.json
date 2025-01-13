@@ -1,4 +1,7 @@
 {
+    "Password": "Contraseña",
+    "Path": "Ruta",
+    "Certs": "Certificados",
     "Cert": "Certificado",
     "Value": "Valor",
     ":name not Found": ":name no encontrado",
