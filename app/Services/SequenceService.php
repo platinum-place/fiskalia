@@ -10,9 +10,9 @@ use Exception;
 
 class SequenceService implements SequenceServiceInterface
 {
-    public function getNextSequence(int $type_value): Sequence
+    public function getNextSequence(int $typeValue): Sequence
     {
-        $type = TypeEnum::getFromValue($type_value);
+        $type = TypeEnum::getFromValue($typeValue);
 
         $sequence = GetCurrentSequence::run($type);
 

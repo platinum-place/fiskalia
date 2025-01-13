@@ -17,6 +17,7 @@ return new class extends Migration
             $table->softDeletes();
             $table->string('status');
             $table->foreignIdFor(\App\Models\Cert::class)->constrained();
+            $table->foreignIdFor(\App\Models\Sequence::class)->constrained();
             $table->string('sequence_number');
             $table->string('security_code');
             $table->string('signature_date');

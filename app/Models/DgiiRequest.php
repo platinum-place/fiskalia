@@ -13,7 +13,7 @@ class DgiiRequest extends Model
 
     protected $fillable = [
         'status', 'sequence_number', 'security_code', 'signature_date',
-        'signed_xml', 'xml_path', 'request', 'cert_id',
+        'signed_xml', 'xml_path', 'request', 'cert_id', 'sequence_id',
     ];
 
     protected function casts(): array
@@ -27,5 +27,10 @@ class DgiiRequest extends Model
     public function cert(): BelongsTo
     {
         return $this->belongsTo(Cert::class);
+    }
+
+    public function sequence(): BelongsTo
+    {
+        return $this->belongsTo(Sequence::class);
     }
 }
