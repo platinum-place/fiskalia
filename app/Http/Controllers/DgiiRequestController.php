@@ -2,24 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Exception;
-use Carbon\Carbon;
-use App\Models\Cert;
-use App\Models\DgiiRequest;
-use Illuminate\Http\Request;
-use App\Actions\Cert\SignXML;
-use App\Services\SequenceService;
 use App\Actions\Cert\GetActiveCert;
-use App\Services\DgiiRequestService;
-use App\Actions\Sequence\GenerateXML;
+use App\Actions\Cert\SignXML;
+use App\Actions\DgiiRequest\GenerateXML;
 use App\Enums\DgiiRequest\StatusEnum;
-use App\Http\Resources\DgiiRequestResource;
 use App\Http\Requests\DgiiRequest\StoreDgiiRequest;
-use App\Actions\Sequence\GenerateNextSequenceNumber;
+use App\Http\Resources\DgiiRequestResource;
+use App\Models\DgiiRequest;
+use App\Services\DgiiRequestService;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class DgiiRequestController extends Controller
 {
-    public function __construct(protected DgiiRequestService $service, protected SequenceService $sequenceService) {}
+    public function __construct(protected DgiiRequestService $service) {}
 
     /**
      * Display a listing of the resource.
@@ -37,20 +33,20 @@ class DgiiRequestController extends Controller
         $data = $request->validated();
 
         $type = $data['IdDoc']['TipoeCF'];
-
-        $sequence = $this->sequenceService->getNextSequence($type);
-        $sequenceNumber = GenerateNextSequenceNumber::run($sequence);
+        $sequenceNumber = $data['IdDoc']['eNCF'];
 
         $cert = GetActiveCert::run();
         $xml = GenerateXML::run($type);
-        //$signedXml = SignXML::run($cert, $xml);
+        // $signedXml = SignXML::run($cert, $xml);
 
         // $xmlClass = simplexml_load_string($signedXml);
         // $securityCode = substr((string) $xmlClass?->Signature?->SignatureValue, 0, 6);
         // $signatureDate = Carbon::parse((string) $xmlClass?->FechaHoraFirma);
+        // $type = TypeEnum::getFromValue($typeValue);
 
         $record = DgiiRequest::create([
             'status' => StatusEnum::inProcess,
+            'type' => $type,
             'sequence_number' => $sequenceNumber,
             // 'security_code' => $securityCode,
             // 'signature_date' => $signatureDate,
@@ -60,7 +56,6 @@ class DgiiRequestController extends Controller
             'signed_xml' => ' ',
             'request' => $data,
             'cert_id' => $cert->id,
-            'sequence_id' => $sequence->id,
         ]);
 
         return new DgiiRequestResource($record);

@@ -2,22 +2,18 @@
 
 namespace App\Filament\Resources;
 
-use Closure;
-use Filament\Forms;
-use App\Models\Cert;
-use Filament\Tables;
-use Filament\Forms\Get;
-use Filament\Forms\Form;
-use Filament\Tables\Table;
-use Filament\Resources\Resource;
-use App\Rules\Cert\ValidateCertPassword;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\FileUpload;
-use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\CertResource\Pages;
+use App\Models\Cert;
+use App\Rules\Cert\ValidateCertPassword;
+use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Form;
+use Filament\Forms\Get;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Actions\Filament\Table\Columns\DateAtColumns;
-use App\Filament\Resources\CertResource\RelationManagers;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 class CertResource extends Resource
@@ -49,7 +45,7 @@ class CertResource extends Resource
                     })
                     ->translateLabel()
                     ->getUploadedFileNameForStorageUsing(function (TemporaryUploadedFile $file) {
-                        return (string) str($file->getClientOriginalName())->prepend(date('Ymd') . '-');
+                        return (string) str($file->getClientOriginalName())->prepend(date('Ymd').'-');
                     }),
                 Forms\Components\TextInput::make('password')
                     ->password()
@@ -58,8 +54,9 @@ class CertResource extends Resource
                     ->rules([
                         function (Get $get) {
                             $files = $get('path');
+
                             return new ValidateCertPassword(reset($files)->get());
-                        }
+                        },
                     ]),
                 Forms\Components\DatePicker::make('due_date')
                     ->native(false)

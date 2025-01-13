@@ -7,10 +7,7 @@ use Illuminate\Contracts\Validation\ValidationRule;
 
 class ValidateCertPassword implements ValidationRule
 {
-    public function __construct(protected string $certContent)
-    {
-
-    }
+    public function __construct(protected string $certContent) {}
 
     /**
      * Run the validation rule.
@@ -19,7 +16,7 @@ class ValidateCertPassword implements ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        if (!openssl_pkcs12_read($this->certContent, $certs, $value)) {
+        if (! openssl_pkcs12_read($this->certContent, $certs, $value)) {
             $fail(__('validation.current_password'));
         }
     }

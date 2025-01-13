@@ -97,7 +97,7 @@ class Login extends SimplePage
     protected function throwFailureValidationException(): never
     {
         throw ValidationException::withMessages([
-            //'data.email' => __('filament-panels::pages/auth/login.messages.failed'),
+            // 'data.email' => __('filament-panels::pages/auth/login.messages.failed'),
             'data.username' => __('filament-panels::pages/auth/login.messages.failed'),
         ]);
     }

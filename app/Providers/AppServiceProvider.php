@@ -2,17 +2,14 @@
 
 namespace App\Providers;
 
-use App\Services\SequenceService;
-use Illuminate\Support\Facades\URL;
 use App\Services\DgiiRequestService;
-use Illuminate\Support\ServiceProvider;
-use App\Services\SequenceServiceInterface;
 use App\Services\DgiiRequestServiceInterface;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
     protected array $services = [
-        SequenceServiceInterface::class => SequenceService::class,
         DgiiRequestServiceInterface::class => DgiiRequestService::class,
     ];
 

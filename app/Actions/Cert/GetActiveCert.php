@@ -2,9 +2,9 @@
 
 namespace App\Actions\Cert;
 
-use Exception;
-use Carbon\Carbon;
 use App\Models\Cert;
+use Carbon\Carbon;
+use Exception;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class GetActiveCert
@@ -14,7 +14,7 @@ class GetActiveCert
     public function handle()
     {
         $cert = Cert::latest()
-            ->whereDate('due_date', '<=', Carbon::now())
+            ->whereDate('due_date', '>=', Carbon::now())
             ->get()
             ->first();
 

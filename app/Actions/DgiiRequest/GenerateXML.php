@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Actions\Sequence;
+namespace App\Actions\DgiiRequest;
 
-use App\Enums\Sequence\TypeEnum;
+use App\Enums\DgiiRequest\TypeEnum;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class GenerateXML

@@ -8,9 +8,6 @@ return [
     'conditionallyAccepted' => 'Aceptado Condicional',
     'rejected' => 'Rechazado',
 
-    'current' => 'Actual',
-    'reserve' => 'Reserva',
-
     'fiscalInvoice' => 'Factura de Crédito Fiscal Electrónica',
     'consumeInvoice' => 'Factura de Consumo Electrónica',
     'debitNote' => 'Nota de Débito Electrónica',

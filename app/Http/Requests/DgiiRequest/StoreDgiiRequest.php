@@ -24,6 +24,7 @@ class StoreDgiiRequest extends FormRequest
         return [
             'IdDoc' => ['required', 'array'],
             'IdDoc.TipoeCF' => ['required', 'integer'],
+            'IdDoc.eNCF' => ['required', 'string'],
         ];
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Enums\Sequence;
+namespace App\Enums\DgiiRequest;
 
 use App\Enums\HasFilamentFunctions;
 use App\Enums\HasIntCaseValue;
