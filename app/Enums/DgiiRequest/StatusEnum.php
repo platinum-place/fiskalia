@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Enums\DgiiTransaction;
+namespace App\Enums\DgiiRequest;
 
-use App\Enums\HasIntCaseValue;
 use App\Enums\HasFilamentFunctions;
+use App\Enums\HasIntCaseValue;
 use Filament\Support\Contracts\HasLabel;
 
 enum StatusEnum: int implements HasLabel

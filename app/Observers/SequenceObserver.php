@@ -2,8 +2,8 @@
 
 namespace App\Observers;
 
-use App\Models\Sequence;
 use App\Enums\Sequence\StatusEnum;
+use App\Models\Sequence;
 
 class SequenceObserver
 {

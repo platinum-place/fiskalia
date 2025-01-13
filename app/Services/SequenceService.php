@@ -2,11 +2,11 @@
 
 namespace App\Services;
 
-use Exception;
-use App\Models\Sequence;
-use App\Enums\Sequence\TypeEnum;
-use App\Actions\Sequence\GetCurrentSequence;
 use App\Actions\Sequence\ActiveReserveSequence;
+use App\Actions\Sequence\GetCurrentSequence;
+use App\Enums\Sequence\TypeEnum;
+use App\Models\Sequence;
+use Exception;
 
 class SequenceService implements SequenceServiceInterface
 {

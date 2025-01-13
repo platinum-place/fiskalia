@@ -2,12 +2,10 @@
 
 namespace App\Enums;
 
-use Exception;
-
 trait HasFilamentFunctions
 {
     public function getLabel(): ?string
     {
-        return __('enums.' . $this->name);
+        return __('enums.'.$this->name);
     }
 }

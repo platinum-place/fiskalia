@@ -2,12 +2,12 @@
 
 namespace App\Actions\Sequence;
 
-use Carbon\Carbon;
-use Mockery\Exception;
-use App\Models\Sequence;
-use App\Enums\Sequence\TypeEnum;
 use App\Enums\Sequence\StatusEnum;
+use App\Enums\Sequence\TypeEnum;
+use App\Models\Sequence;
+use Carbon\Carbon;
 use Lorisleiva\Actions\Concerns\AsAction;
+use Mockery\Exception;
 
 class GetCurrentSequence
 {
@@ -20,7 +20,7 @@ class GetCurrentSequence
             ->whereDate('due_date', '>=', Carbon::now())
             ->orderByDesc('created_at')
             ->get()
-            ->first(); 
+            ->first();
 
         if (empty($current)) {
             throw new Exception(__('No sequences available'));

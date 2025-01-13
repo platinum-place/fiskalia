@@ -2,8 +2,8 @@
 
 namespace App\Enums\Sequence;
 
-use App\Enums\HasIntCaseValue;
 use App\Enums\HasFilamentFunctions;
+use App\Enums\HasIntCaseValue;
 use Filament\Support\Contracts\HasLabel;
 
 enum TypeEnum: int implements HasLabel

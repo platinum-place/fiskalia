@@ -2,9 +2,7 @@
 
 namespace App\Actions\Sequence;
 
-use Exception;
 use App\Models\Sequence;
-use App\Enums\Sequence\StatusEnum;
 use Lorisleiva\Actions\Concerns\AsAction;
 
 class GenerateNextSequenceNumber

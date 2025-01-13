@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\DgiiRequestService;
 use App\Services\SequenceService;
 use Illuminate\Http\Request;
 
-class SequencesController extends Controller
+class DgiiRequestController extends Controller
 {
-    public function __construct(protected SequenceService $service) {}
+    public function __construct(protected DgiiRequestService $service, protected SequenceService $sequenceService) {}
 
     /**
      * Display a listing of the resource.
