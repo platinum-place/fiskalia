@@ -45,7 +45,7 @@ class DgiiRequestController extends Controller
         $signatureDate = Carbon::parse((string) $xmlClass?->FechaHoraFirma);
 
         if ($type == TypeEnum::consumeInvoice and $total <= config('dgii.fc_limit')) {
-            $signedXml = SignFCXML::run($xml, $data);
+            $signedXml = SignFCXML::run($data, $securityCode);
         }
 
         $record = DgiiRequest::create([
@@ -56,6 +56,7 @@ class DgiiRequestController extends Controller
             'signature_date' => $signatureDate,
             'signed_xml' => $signedXml,
             'request' => $data,
+            'user_id' => $request->user()->id,
         ]);
 
         return new DgiiRequestResource($record);

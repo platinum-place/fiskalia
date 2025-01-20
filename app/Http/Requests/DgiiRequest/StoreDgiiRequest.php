@@ -52,6 +52,14 @@ class StoreDgiiRequest extends FormRequest
             'Totales.TotalITBIS2' => ['nullable', 'numeric'],
             'Totales.TotalITBIS3' => ['nullable', 'numeric'],
             'Totales.MontoTotal' => ['required', 'numeric'],
+
+            'DetallesItems' => ['required', 'array'],
+            'DetallesItems.*.IndicadorFacturacion' => ['required', 'integer'],
+            'DetallesItems.*.NombreItem' => ['required', 'string'],
+            'DetallesItems.*.IndicadorBienoServicio' => ['required', 'integer'],
+            'DetallesItems.*.CantidadItem' => ['required', 'numeric'],
+            'DetallesItems.*.PrecioUnitarioItem' => ['required', 'numeric'],
+            'DetallesItems.*.MontoItem' => ['required', 'numeric'],
         ];
     }
 }

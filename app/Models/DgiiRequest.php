@@ -13,7 +13,7 @@ class DgiiRequest extends Model
 
     protected $fillable = [
         'status', 'type', 'sequence_number', 'security_code', 'signature_date',
-        'signed_xml', 'xml_path', 'request',
+        'signed_xml', 'xml_path', 'request', 'user_id',
     ];
 
     protected function casts(): array
@@ -26,6 +26,11 @@ class DgiiRequest extends Model
     }
 
     protected $hidden = [
-        'request',
+        'request', 'signed_xml', 'xml_path',
     ];
+
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

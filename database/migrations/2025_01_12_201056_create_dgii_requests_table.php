@@ -23,6 +23,7 @@ return new class extends Migration
             $table->longText('signed_xml');
             $table->string('xml_path')->nullable();
             $table->json('request')->nullable();
+            $table->foreignIdFor(\App\Models\User::class)->nullable()->constrained();
         });
     }
 
