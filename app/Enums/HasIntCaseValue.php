@@ -6,6 +6,9 @@ use Exception;
 
 trait HasIntCaseValue
 {
+    /**
+     * @throws Exception
+     */
     public static function getFromValue(int $value): Exception|self
     {
         foreach (self::cases() as $case) {

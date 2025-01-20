@@ -17,11 +17,10 @@ return new class extends Migration
             $table->softDeletes();
             $table->unsignedBigInteger('status');
             $table->unsignedBigInteger('type');
-            $table->foreignIdFor(model: \App\Models\Cert::class)->constrained();
             $table->string('sequence_number');
             $table->string('security_code');
             $table->string('signature_date');
-            $table->string('signed_xml');
+            $table->longText('signed_xml');
             $table->string('xml_path')->nullable();
             $table->json('request')->nullable();
         });
