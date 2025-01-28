@@ -2,13 +2,11 @@
 
 namespace App\Enums\DgiiRequest;
 
-use App\Enums\HasFilamentFunctions;
 use App\Enums\HasIntCaseValue;
-use Filament\Support\Contracts\HasLabel;
 
-enum TypeEnum: int implements HasLabel
+enum TypeEnum: int
 {
-    use HasFilamentFunctions, HasIntCaseValue;
+    use HasIntCaseValue;
 
     case fiscalInvoice = 31;
 

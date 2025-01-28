@@ -2,13 +2,11 @@
 
 namespace App\Enums\DgiiRequest;
 
-use App\Enums\HasFilamentFunctions;
 use App\Enums\HasIntCaseValue;
-use Filament\Support\Contracts\HasLabel;
 
-enum StatusEnum: int implements HasLabel
+enum StatusEnum: int
 {
-    use HasFilamentFunctions, HasIntCaseValue;
+    use HasIntCaseValue;
 
     case inProcess = 1;
 

@@ -17,6 +17,6 @@ trait HasIntCaseValue
             }
         }
 
-        throw new Exception(__(':name not Found', ['name' => __('Value')]));
+        throw new Exception(__('Not Found'));
     }
 }
