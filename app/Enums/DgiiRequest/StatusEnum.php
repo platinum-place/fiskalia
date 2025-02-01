@@ -13,4 +13,9 @@ enum StatusEnum: int
     case rejected = 4;
 
     case error = 5;
+
+    public static function getValues(): array
+    {
+        return array_column(self::cases(), 'value');
+    }
 }
