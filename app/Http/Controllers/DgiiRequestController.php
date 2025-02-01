@@ -20,7 +20,9 @@ class DgiiRequestController extends Controller
      */
     public function index()
     {
-        //
+        $records = DgiiRequest::paginate();
+
+        return DgiiRequestResource::collection($records);
     }
 
     /**

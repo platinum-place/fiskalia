@@ -16,13 +16,10 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->unsignedBigInteger('status');
-            $table->unsignedBigInteger('type');
-            $table->string('sequence_number');
-            $table->string('security_code');
-            $table->string('signature_date');
             $table->longText('signed_xml');
             $table->string('xml_path')->nullable();
             $table->json('request')->nullable();
+            $table->json('response')->nullable();
             $table->foreignIdFor(\App\Models\User::class)->nullable()->constrained();
         });
     }
