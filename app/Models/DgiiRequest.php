@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enums\DgiiRequest\StatusEnum;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class DgiiRequest extends Model
@@ -27,7 +28,7 @@ class DgiiRequest extends Model
         'request', 'signed_xml', 'xml_path',
     ];
 
-    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
