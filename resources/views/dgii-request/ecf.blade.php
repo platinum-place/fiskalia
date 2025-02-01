@@ -3,11 +3,11 @@
     <Encabezado>
         <Version>1.0</Version>
         <IdDoc>
-            <TipoeCF>31</TipoeCF>
+            <TipoeCF>{{ $IdDoc['TipoeCF'] }}</TipoeCF>
             <eNCF>{{ $IdDoc['eNCF'] }}</eNCF>
             <FechaVencimientoSecuencia>{{ $IdDoc['FechaVencimientoSecuencia'] }}</FechaVencimientoSecuencia>
             {{--        <IndicadorEnvioDiferido>1</IndicadorEnvioDiferido>--}}
-            <IndicadorMontoGravado>1</IndicadorMontoGravado>
+            <IndicadorMontoGravado>{{ $IdDoc['IndicadorMontoGravado'] }}</IndicadorMontoGravado>
             {{--      <IndicadorServicioTodoIncluido>1</IndicadorServicioTodoIncluido>--}}
             <TipoIngresos>{{ $IdDoc['TipoIngresos'] }}</TipoIngresos>
             <TipoPago>{{ $IdDoc['TipoPago'] }}</TipoPago>
@@ -102,7 +102,9 @@
         {{--            <NumeroAlbaran>NumeroAlbaran1</NumeroAlbaran>--}}
         {{--        </Transporte>--}}
         <Totales>
-            <MontoGravadoTotal>{{ $Totales['MontoGravadoTotal'] }}</MontoGravadoTotal>
+            @isset($Totales['MontoGravadoTotal'])
+                <MontoGravadoTotal>{{ $Totales['MontoGravadoTotal'] }}</MontoGravadoTotal>
+            @endisset
             @isset($Totales['MontoGravadoI1'])
                 <MontoGravadoI1>{{ $Totales['MontoGravadoI1'] }}</MontoGravadoI1>
             @endisset
