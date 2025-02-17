@@ -12,7 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->trustProxies(at: '*'); // Livewire problem with upload files in producction
+        //
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

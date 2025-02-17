@@ -127,11 +127,6 @@ return [
             'path' => storage_path('logs/laravel.log'),
         ],
 
-        'database' => [
-            'driver' => 'monolog',
-            'handler' => App\Logging\DatabaseLogger::class,
-        ],
-
     ],
 
 ];
