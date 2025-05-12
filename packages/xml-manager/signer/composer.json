@@ -1,0 +1,22 @@
+{
+    "name": "xml-manager/signer",
+    "type": "library",
+    "require": {
+        "selective/xmldsig": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "XMLManager\\Signer\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "XMLManager\\Signer\\ServiceProvider"
+            ],
+            "aliases": {
+                "SignManager": "XMLManager\\Signer\\Facade"
+            }
+        }
+    }
+}
