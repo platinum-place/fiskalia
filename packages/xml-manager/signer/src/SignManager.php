@@ -41,10 +41,11 @@ final class SignManager
      *                            certificado
      * @param  string  $xml  contenido del archivo xml
      */
-    public function sing(string $cert_store, string $password, string $xml): string
+    public function sign(string $cert_store, string $password, string $xml): string
     {
-        if (! openssl_pkcs12_read($cert_store, $certs, $password)) {
 
+        if (! openssl_pkcs12_read($cert_store, $certs, $password)) {
+dd(openssl_error_string());
             echo "Error: No fue posible leer el contenido del certificado.\n";
             exit;
         }

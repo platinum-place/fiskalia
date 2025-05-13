@@ -3,6 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+Route::middleware([\Laravel\Passport\Http\Middleware\EnsureClientIsResourceOwner::class])->group(function () {
+    Route::post('signer', \App\Http\Controllers\SignerController::class);
+});
