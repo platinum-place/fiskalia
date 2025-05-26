@@ -21,7 +21,7 @@ class Cert extends Model
     {
         return [
             'due_date' => 'date',
-            'password' => 'hashed',
+            'password' => 'encrypted',
         ];
     }
 }
