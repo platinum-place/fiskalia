@@ -24,7 +24,7 @@ class CertController extends Controller
     {
         $data = $request->validated();
 
-        $filename = date('YmdHmi') . '-' . $request->file('cert')->getClientOriginalName();
+        $filename = date('YmdHmi').'-'.$request->file('cert')->getClientOriginalName();
         $data['cert_path'] = $request->file('cert')->storeAs('certs', $filename);
 
         $record = Cert::create($data);

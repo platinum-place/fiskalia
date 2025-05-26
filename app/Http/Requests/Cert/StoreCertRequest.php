@@ -22,7 +22,7 @@ class StoreCertRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'cert' => ['required', 'file',/** 'mimetypes:application/x-pkcs12,application/pkcs12' */],
+            'cert' => ['required', 'file'/** 'mimetypes:application/x-pkcs12,application/pkcs12' */],
             'password' => ['required', 'string', 'max:255'],
             'due_date' => ['required', 'date'],
         ];

@@ -2,17 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cert;
 use App\Services\SignerService;
-use DGII\Signer\DGIISigner;
-use DGII\Signer\SignManager;
 use Illuminate\Http\Request;
 
 class SignerController extends Controller
 {
-    public function __construct(protected SignerService $service)
-    {
-    }
+    public function __construct(protected SignerService $service) {}
 
     /**
      * Handle the incoming request.
@@ -20,7 +15,7 @@ class SignerController extends Controller
     public function __invoke(Request $request)
     {
         $request->validate([
-            'xml' => ['required', 'file', 'mimes:xml']
+            'xml' => ['required', 'file', 'mimes:xml'],
         ]);
 
         $xml = $request->file('xml')->getContent();

@@ -8,7 +8,6 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
 
-
 Route::middleware(EnsureClientIsResourceOwner::class)->group(function () {
     Route::post('signer', \App\Http\Controllers\SignerController::class);
 
