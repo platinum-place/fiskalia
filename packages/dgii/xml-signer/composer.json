@@ -10,12 +10,5 @@
         "psr-4": {
             "DGII\\Signer\\": "src/"
         }
-    },
-    "extra": {
-        "laravel": {
-            "aliases": {
-                "DGIISigner": "DGII\\Signer\\Facade"
-            }
-        }
     }
 }
