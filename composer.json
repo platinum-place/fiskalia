@@ -8,21 +8,10 @@
         "framework"
     ],
     "license": "MIT",
-    "repositories": [
-      {
-        "type": "path",
-        "url": "packages/dgii/xml-signer",
-        "options": {
-          "symlink": true
-        }
-      }
-    ],
     "require": {
         "php": "^8.2",
         "laravel/framework": "^12.0",
-        "laravel/passport": "^13.0",
-        "laravel/tinker": "^2.10.1",
-        "dgii/xml-signer": "dev-main"
+        "laravel/tinker": "^2.10.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
