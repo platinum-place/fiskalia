@@ -1,0 +1,16 @@
+{
+    "name": "dgii/api",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "DGII\\API\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "DGII\\API\\ServiceProvider"
+            ]
+        }
+    }
+}
